@@ -40,7 +40,8 @@ page.open('<?php echo $url ?>', function (status) {
             <?php endforeach ?>
         <?php endif ?>
     });
-
-    page.render('<?php echo $imageLocation ?>');
-    phantom.exit();
+	setTimeout(function() {
+		page.render('<?php echo $imageLocation ?>');
+		phantom.exit();
+	}, <?php echo $delay ?>);
 });

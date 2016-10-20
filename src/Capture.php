@@ -140,6 +140,13 @@ class Capture
      */
     protected $options = array();
 
+	/**
+	 * Minimum delay to wait before saving screenshot
+	 *
+	 * @var array
+	 */
+	protected $delay = 100;
+
     /**
      * Capture constructor.
      */
@@ -178,6 +185,7 @@ class Capture
             'url'           => (string) $this->url,
             'width'         => $this->width,
             'height'        => $this->height,
+			'delay'			=> $this->getDelay(),
             'imageLocation' => LocalPath::sanitize($this->imageLocation),
         );
 
@@ -472,4 +480,16 @@ class Capture
 
         return $this;
     }
+
+	public function setDelay($delay)
+	{
+		$this->delay = $delay;
+
+		return $this;
+	}
+
+	public function getDelay()
+	{
+		return $this->delay;
+	}
 }
