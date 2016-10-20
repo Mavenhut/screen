@@ -450,7 +450,7 @@ class Capture
      */
     public function includeJs($script)
     {
-        if (is_a($script, Url::class)) {
+        if (is_a($script, "Screen\\Injection\\Url")) {
             $this->includedJsScripts[] = $script;
         } else {
             $this->includedJsSnippets[] = $script;
